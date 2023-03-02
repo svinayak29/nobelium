@@ -1,0 +1,1 @@
+git stash apply vs pop : They are almost similar except the fact that git stash pop throws away the (topmost, by default) stash when applying it, whereas git stash apply leaves it within the stash list for possible later use (or you'll then git stash drop it).
