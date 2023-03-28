@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import SingleMentor from './Components/SingleMentor';
+import { mentors } from './data';
+import Slider from "react-slick";
+import "./style/slick.css";
+import "./style/slickTheme.css";
+import "./App.css";
 
-function App() {
+
+
+const App = () => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>FunctionUp Mentors</h1>
+      <div className='cotainer'>
+        <Slider {...settings}>
+          {mentors.map((ele, index) => (
+            <div key={index} className="singleSlide">
+              <SingleMentor {...ele} />
+            </div>
+          ))}
+        </Slider>
+      </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
